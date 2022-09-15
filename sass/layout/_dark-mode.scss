@@ -1,0 +1,30 @@
+//import mixin  from helpers file
+@use "../helpers/mixins" as *;
+    
+.dark {
+  @include flex-center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  & i {
+    color: #ffd700;
+    font-size: 20px;
+  }
+}
+
+.dark-txt-header,
+.feature-one-dark-h1,
+.feature-two-dark-h1 {
+  color: #eeeeee !important;
+}
+.header-details,
+.dark-footer-content,
+.dark-logo {
+  color: white !important;
+}

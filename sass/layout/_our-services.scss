@@ -1,0 +1,120 @@
+//import mixin  from helpers file
+@use "../helpers/mixins" as *;
+
+/*Start Our Service Section*/
+#Service {
+  margin-top: 100px;
+  position: relative;
+}
+#Service::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 760px;
+  background-color: #fef5f5;
+}
+
+#Service .container > :first-child {
+  width: 137px;
+  height: 24px;
+  padding-top: 100px;
+  margin: 20px auto;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #f54748;
+}
+#Service .container > :nth-child(2) {
+  padding-top: 8px;
+  margin: 20px auto;
+  width: 627px;
+  height: 108px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 54px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #2e2e2e;
+}
+.Services {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-rows: auto;
+  grid-row-gap: 2%;
+  grid-column-gap: 2%;
+}
+.Services div {
+  @include flex-center;
+  flex-direction: column;
+  align-items: space-evenly;
+  width: 300px;
+  height: 310px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  & h1 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #2e2e2e;
+  }
+  & p {
+    width: 243px;
+    height: 50px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    color: #676767;
+  }
+  &:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    width: 310px;
+    height: 334.16px;
+    z-index: -1;
+    background-color: #fe6a6a;
+    border-radius: 12px;
+    transform: rotate(-3deg);
+    cursor: pointer;
+  }
+}
+//max-width: 767px
+@include breakpoints(mobile) {
+  #Service::before {
+    height: 1480px;
+  }
+  .Services {
+    margin-top: 120px;
+  }
+  .Services div {
+    margin-top: 150px;
+    margin: 20px auto;
+  }
+  #Service .container > :nth-child(2) {
+    font-size: 35px;
+    width: 360px;
+  }
+}
+//@media (min-width: 768px) and (max-width: 991px)
+@include breakpoints(small) {
+  #Service::before {
+    height: 1000px;
+  }
+  .Services {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+//@media (min-width: 992px) and (max-width: 1199px)
+@include breakpoints(medium) {
+  #Service::before {
+    height: 1000px;
+  }
+}
+/*End Our Service Section*/

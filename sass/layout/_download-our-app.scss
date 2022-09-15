@@ -1,0 +1,114 @@
+//import mixin  from helpers file
+@use "../helpers/mixins" as *;
+
+.about-us {
+  position: relative;
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#Shop {
+  position: relative;
+  padding: 1px 0px;
+}
+#Shop::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  height: 755px;
+  background-color: #fef5f5;
+}
+.about-us > :first-child {
+  width: 289.39px;
+  height: 555px;
+}
+.about-us > :nth-child(2) {
+  width: 466px;
+  height: 362px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  & > :first-child {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #f54748;
+  }
+  & > :nth-child(2) {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 54px;
+    text-transform: capitalize;
+    color: #2e2e2e;
+  }
+  & > :nth-child(3) {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #676767;
+  }
+  & > :nth-child(4) {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    & > :first-child,
+    > :nth-child(2) {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 208px;
+      height: 80px;
+      border: 1.5px solid #eedcdc;
+      border-radius: 12px;
+    }
+  }
+}
+// (max-width: 767px)
+@include breakpoints(mobile) {
+  .about-us {
+    margin-top: 300px;
+    flex-direction: column;
+  }
+  #Shop {
+    padding: 0;
+  }
+  #Shop::before {
+    height: 1350px;
+  }
+  .about-us > :first-child {
+    margin-top: 50px;
+  }
+  .about-us > :nth-child(2) {
+    margin-top: 50px;
+    width: 300px;
+    & > :nth-child(4) {
+      flex-direction: column;
+      & > :first-child,
+      > :nth-child(2) {
+        width: 300px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+//(min-width: 768px) and (max-width: 991px)
+@include breakpoints(small) {
+  #Shop {
+    margin-top: 100px;
+  }
+  .about-us > :nth-child(2) {
+    width: 366px;
+    align-self: flex-start;
+    & > :nth-child(4) {
+      flex-direction: column;
+      & > :first-child,
+      > :nth-child(2) {
+        width: 350px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

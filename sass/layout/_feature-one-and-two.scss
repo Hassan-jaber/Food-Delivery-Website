@@ -1,0 +1,131 @@
+//import mixin  from helpers file
+@use "../helpers/mixins" as *;
+
+/*Start Our feature-one and feature-two  Section*/
+#Menu {
+  margin-top: 200px;
+  width: 100%;
+}
+.feature-one,.feature-two{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feature-two{
+  margin-top: 100;
+}
+.feature-two>:first-child{
+order: 2;
+}
+.feature-two>:nth-child(2){
+  order: 1;
+}
+.feature-one > :first-child{
+  width: 664px;
+  height: 738px;
+}
+.feature-two> :first-child {
+  width: 500px;
+  height: 645.79px;
+}
+.feature-one> :nth-child(2) {
+  width: 394px;
+  height: 372px;
+}
+.feature-two> :nth-child(2) {
+width: 519px;
+  height: 372px;
+}
+
+.feature-one > :nth-child(2),.feature-two> :nth-child(2){
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  & > :first-child {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #03a66b;
+  }
+  & > :nth-child(2) {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 54px;
+    text-transform: capitalize;
+    color: #2e2e2e;
+  }
+  & > :nth-child(3) {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #676767;
+  }
+  & > :nth-child(4) a {
+    @include flex-center;
+    width: 201px;
+    height: 70px;
+    background: #f86061;
+    border-radius: 12px;
+  }
+
+} 
+.feature-two>:nth-child(2)>:nth-child(4) a {
+      background-color: white;
+      border: 1.5px solid #F86061;
+      color: #F86061;
+    }
+//(max-width: 767px)
+@include breakpoints(mobile) {
+  .feature-one,.feature-two{
+    flex-direction: column;
+  }
+  .feature-one > :first-child,  .feature-two> :first-child{
+    width: 350px;
+    height: 300px;
+    & > img {
+      width: 350px;
+    }
+  }
+  .feature-one > :nth-child(2),  .feature-two> :nth-child(2) {
+    margin-top: 100px;
+    width: 300px;
+    & > :nth-child(4) a {
+      width: 300px;
+      font-size: 20px;
+    }
+  } 
+    .feature-two{
+      margin-top: 150px;
+    }
+  .feature-two>:first-child {
+      order: 1;
+    }
+  
+    .feature-two>:nth-child(2) {
+      order: 2;
+    }
+}
+//(min-width: 992px) and (max-width: 1199px)
+@include breakpoints(medium) {
+  .feature-one > :first-child {
+    width: 564px;
+    & > img {
+      width: 564px;
+    }
+  }
+}
+//@media (min-width: 768px) and (max-width: 991px)
+@include breakpoints(small) {
+
+  .feature-one > :first-child,.feature-two>:first-child{
+    width: 400px;
+    position: relative;
+    & > img {
+      @include center-position(false, true);
+      width: 400px;
+    }
+  }
+}
+/*End Our feature-one and feature-two Section*/

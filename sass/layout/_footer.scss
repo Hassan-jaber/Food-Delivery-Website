@@ -1,0 +1,152 @@
+//import mixin  from helpers file
+@use "../helpers/mixins" as *;
+
+footer {
+  margin-top: 100px;
+  height: 465px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 360px;
+  & > :first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & > :first-child {
+      display: flex;
+      align-items: center;
+      & > :nth-child(2) {
+        margin-left: 1rem;
+      }
+    }
+    & > :nth-child(2) {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      width: 266px;
+      height: 78px;
+      color: #676767;
+    }
+  }
+}
+.footer-links {
+  width: 690px;
+  height: 210px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & ul li a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 40px;
+    color: #676767;
+  }
+  & > :nth-child(3) {
+    align-self: flex-start;
+    & > p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      width: 191px;
+      height: 78px;
+      color: #888888;
+    }
+  }
+}
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ececec;
+  & > :first-child {
+    width: 232px;
+    height: 24px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #8c8c8c;
+  }
+  & > :nth-child(2) {
+    width: 275px;
+    display: flex;
+    justify-content: space-between;
+    & > :first-child {
+      width: 139px;
+      height: 24px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #747474;
+    }
+    & > :nth-child(2) {
+      width: 111px;
+      height: 24px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #747474;
+    }
+  }
+}
+//(min-width: 992px) and (max-width: 1199px)
+@include breakpoints(medium) {
+  .footer-links {
+    width: 600px;
+  }
+}
+//(min-width: 768px) and (max-width: 991px)
+@include breakpoints(small) {
+  .footer-content {
+    flex-direction: column;
+    & > :first-child {
+      align-self: flex-start;
+    }
+    & > :nth-child(2) {
+      align-self: flex-start;
+    }
+  }
+  .footer-links {
+    width: 690px;
+  }
+  .copyright {
+    margin-top: 50px;
+  }
+}
+//(max-width: 767px)
+@include breakpoints(mobile) {
+  footer {
+    margin-top: 400px;
+  }
+  .copyright {
+    margin-top: 550px;
+    flex-direction: column;
+    & > :nth-child(2) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .footer-links {
+    width: 300px;
+  }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    & > :first-child {
+      width: 250px;
+      margin: 20px auto;
+      & > :first-child {
+        margin: 20px auto;
+      }
+    }
+
+    & > :nth-child(2) {
+      align-self: center;
+      flex-direction: column;
+      & > :nth-child(3) {
+        align-self: center;
+      }
+    }
+  }
+}

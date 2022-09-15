@@ -1,0 +1,297 @@
+//import mixin  from helpers file
+@use "../helpers/mixins" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  height: 67px;
+  margin-top: 20px;
+  padding: 10px 10px;
+  border-radius: 12px;
+}
+.logo {
+  @include flex-center;
+  justify-content: space-between;
+  width: 155px;
+}
+.logo span {
+  width: 106.22px;
+  font-size: 25px;
+  color: #2e2e2e;
+}
+nav {
+  width: 312px;
+  &:hover {
+    color: #4d4d4d;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    li {
+      a {
+        color: #4d4d4d;
+      }
+    }
+  }
+}
+
+input {
+  width: inherit;
+  height: inherit;
+  background: #ffffff;
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  position: relative;
+  text-indent: 20px;
+}
+
+form {
+  position: relative;
+  width: 289px;
+  height: 54px;
+}
+form::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 15.447309494018555px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0px;
+  left: 3px;
+  z-index: 1;
+  background-image: url(../../images/icon-search.png);
+}
+form::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url(../../images/notification.png);
+  background-repeat: no-repeat;
+}
+form span {
+  @include flex-center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  top: -15px;
+  background-color: #f55253;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.005em;
+  color: #fffdfd;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.txt-content {
+  width: 578px;
+  height: 542px;
+}
+.header-img {
+  width: 619px;
+  height: 605px;
+}
+.txt-content > :first-child {
+  @include flex-center;
+  height: 46px;
+  width: 214px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+  background-color: rgba(253, 236, 236, 1);
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #f55556;
+}
+.txt-content > :first-child::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  position: absolute;
+  background-image: url(../../images/image.png);
+  background-position: 5px 10px;
+  background-size: contain;
+  filter: drop-shadow(0px 12px 20px rgba(224, 25, 35, 0.2));
+}
+.txt-content > :nth-child(2) {
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 88px;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: #2e2e2e;
+}
+.txt-content > :nth-child(2) > span {
+  letter-spacing: -0.05em;
+  color: #f54748;
+}
+.txt-content > :nth-child(3) {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.005em;
+
+  color: #676767;
+}
+.header-btn {
+  width: 444px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-btn > :first-child {
+  @include flex-center;
+  width: 186px;
+  height: 70px;
+  background-color: #f86061;
+  color: #fffafa;
+  border-radius: 12px;
+}
+.header-btn > :nth-child(2) {
+  @include flex-center;
+  width: 244px;
+  height: 70px;
+  background-color: #ffffff;
+  color: #363636;
+  border-radius: 12px;
+  position: relative;
+
+  padding-left: 30px;
+  &::before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-image: url(../../images/Polygon.png);
+    background-repeat: no-repeat;
+    background-position: 12px 22px;
+    background-size: auto;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    box-shadow: 0px 20px 49px -10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+  }
+}
+
+//max-width: 767px
+@include breakpoints(mobile) {
+  .header {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+  }
+  .header-content {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header-img {
+    order: 1;
+    width: 380px;
+    height: 350px;
+    align-self: center;
+    margin-right: 10%;
+  }
+  .header-img > img {
+    width: 380px;
+  }
+  .txt-content {
+    width: 300px;
+    align-self: center;
+    order: 2;
+  }
+  .txt-content > :nth-child(2) {
+    font-size: 35px;
+    line-height: 60px;
+  }
+  .header-btn {
+    width: 300px;
+    height: 160px;
+    flex-direction: column;
+    margin: 20px auto;
+  }
+  .header-btn > :first-child {
+    width: 300px;
+    height: 70px;
+  }
+
+  .header-btn > :nth-child(2) {
+    width: 300px;
+    border: 1px solid #f54748;
+    &::before {
+      width: 50px;
+      height: 50px;
+      background-position: 8px 12px;
+    }
+  }
+}
+//(min-width: 768px) and (max-width: 991px)
+@include breakpoints(small) {
+  .header {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+  }
+  .header-content {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-img {
+    order: 1;
+    width: 380px;
+    height: 350px;
+    align-self: center;
+    margin-right: 10%;
+  }
+
+  .header-img > img {
+    width: 380px;
+  }
+
+  .txt-content {
+    width: 600px;
+    align-self: center;
+    order: 2;
+  }
+  .logo span {
+    width: 106.22px;
+    font-size: 25px;
+    color: #2e2e2e;
+  }
+
+  nav {
+    width: 450px;
+  }
+  form {
+    width: 400px;
+  }
+}
+

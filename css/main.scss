@@ -1,0 +1,16 @@
+//import global-rules from layout file
+@use '../sass/layout/global-rules';
+//import dark-mode from layout file
+@use '../sass/layout/dark-mode';
+//import mixin  from helpers file
+@use '../sass/helpers/mixins';
+//import header from layout file
+@use '../sass/layout/header';
+//import our services from layout file
+@use '../sass/layout/our-services';
+//import feature one and feature two from layout file
+@use '../sass/layout/feature-one-and-two';
+//import download our app from layout file
+@use '../sass/layout/download-our-app';
+//import footer from layout file
+@use '../sass/layout/footer'
